@@ -7,8 +7,8 @@ before_install:
   - docker build -t selvamshan/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run selvamshan/react-test npm test -- --coverage
-  #- docker run -e CI=true selvamshan/react-test npm test
+  #- docker run selvamshan/react-test npm test -- --coverage
+  - docker run -e CI=true selvamshan/react-test npm test
 
 after-success:
   - docker build -t selvamshan/multi-client ./client
